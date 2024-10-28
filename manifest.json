@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube Speed Control",
+    "version": "1.0",
+    "description": "Control YouTube playback speed using keyboard shortcuts.",
+    "permissions": ["tabs", "activeTab", "scripting"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.youtube.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "commands": {
+      "increase-speed": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+Up"
+        },
+        "description": "Increase playback speed"
+      },
+      "decrease-speed": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+Down"
+        },
+        "description": "Decrease playback speed"
+      },
+      "reset-speed": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+R"
+        },
+        "description": "Reset playback speed"
+      }
+    }
+  }
+  
